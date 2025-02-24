@@ -1,10 +1,10 @@
 const CACHE_NAME = "pwa-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/script.js",
-  "/manifest.json",
-  "/qr_vault_icon.png"
+  "/QrVault/",
+  "/QrVault/index.html",
+  "/QrVault/script.js",
+  "/QrVault/manifest.json",
+  "/QrVault/qr_vault_icon.png"
 ];
 
 // Install Service Worker
