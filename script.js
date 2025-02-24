@@ -219,4 +219,4 @@ class QRVault {
 }
 
 // Initialize Vault
-let qr_vault = new QRVault("https://kkuuba.github.io/QrVault/");
+let qr_vault = new QRVault("https://kkuuba.github.io/QrVault");
