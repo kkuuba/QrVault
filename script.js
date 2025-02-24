@@ -1,6 +1,6 @@
 class QRVault {
-    constructor(host, port) {
-        this.qr_vaul_url = `${host}:${port}`
+    constructor(qr_vaul_url) {
+        this.qr_vaul_url = qr_vaul_url
         const params = new URLSearchParams(window.location.search);
         if (params.get("data")) {
             document.getElementById('decrypt_qr_vault').classList.remove('hidden');
@@ -219,4 +219,4 @@ class QRVault {
 }
 
 // Initialize Vault
-let qr_vault = new QRVault("https://192.168.0.59", 5000);
+let qr_vault = new QRVault("https://kkuuba.github.io/QrVault/");
