@@ -4,8 +4,7 @@ const urlsToCache = [
   "/index.html",
   "/script.js",
   "/manifest.json",
-  "/icon-192x192.png",
-  "/icon-512x512.png"
+  "/qr_vault_icon.png"
 ];
 
 // Install Service Worker
