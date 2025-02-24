@@ -17,7 +17,9 @@ class QRVault {
         new QRCode(qrDiv, {
             text: qrVaultLink,
             width: 512,
-            height: 512
+            height: 512,
+            correctLevel: QRCode.CorrectLevel.L, // Lowest error correction for max data storage
+            version: 40 // Highest version (177x177 modules)
         });
     }
 
