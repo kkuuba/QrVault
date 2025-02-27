@@ -160,9 +160,9 @@ class QRVault {
             JSON.parse(decryptedData).forEach(item => {
                 const row = `
                     <tr class="border">
-                        <td class="py-2 px-4 border">${item.service}</td>
-                        <td class="py-2 px-4 border">${item.username}</td>
-                        <td class="py-2 px-4 border">${item.password}</td>
+                        <td class="py-2 px-4 border">${item[0]}</td>
+                        <td class="py-2 px-4 border">${item[1]}</td>
+                        <td class="py-2 px-4 border">${item[2]}</td>
                     </tr>`;
                 tableBody.innerHTML += row;
             });
@@ -188,7 +188,7 @@ class QRVault {
         }
     
         // Create a dictionary (object)
-        const dataEntry = { service, username, password };
+        const dataEntry = [service, username, password];
     
         // Add to list
         this.new_qr_vault_content.push(dataEntry);
@@ -210,9 +210,9 @@ class QRVault {
         this.new_qr_vault_content.forEach(item => {
             const row = `
                 <tr>
-                    <td class="py-2 px-4 border">${item.service}</td>
-                    <td class="py-2 px-4 border">${item.username}</td>
-                    <td class="py-2 px-4 border">${item.password}</td>
+                    <td class="py-2 px-4 border">${item[0]}</td>
+                    <td class="py-2 px-4 border">${item[1]}</td>
+                    <td class="py-2 px-4 border">${item[2]}</td>
                 </tr>
             `;
             tableBody.innerHTML += row;
