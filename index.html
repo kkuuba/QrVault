@@ -87,15 +87,15 @@
     </button>
 
     <button id="installBtn" onclick="qr_vault.showInstallPrompt()"
-        class="hidden fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">
-        📲 Install App
+        class="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition">
+        ⬇ Install App
     </button>
 
     <!-- Modal Background (Hidden by Default) -->
     <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
         <!-- Modal Content -->
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm">
-            <h2 class="text-xl font-bold mb-2">Info</h2>
+            <h2 class="text-xl font-bold mb-2">QrVault Info</h2>
             <p id="pwaDetails" class="text-gray-700"></p>
             <button id="closeBtn" onclick="qr_vault.closeInfoMessage()"
                 class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">

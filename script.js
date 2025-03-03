@@ -7,19 +7,39 @@ class QRVault {
             document.getElementById('create_qr_vault').classList.add('hidden');
         }
         this.new_qr_vault_content = []
-        this.deferredPrompt;
+
+        let deferredPrompt;
 
         window.addEventListener('beforeinstallprompt', (event) => {
             event.preventDefault(); // Prevent automatic prompt
             deferredPrompt = event; // Store the event
-
+            
             // Show the install button
             document.getElementById("installBtn").classList.remove("hidden");
         });
+        
+        document.getElementById("installBtn").addEventListener("click", async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt(); // Show the install prompt
+                
+                const choice = await deferredPrompt.userChoice;
+                if (choice.outcome === "accepted") {
+                    console.log("User accepted the PWA install");
+                } else {
+                    console.log("User dismissed the PWA install");
+                }
+                
+                deferredPrompt = null; // Reset the prompt
+                document.getElementById("installBtn").classList.add("hidden");
+            }
+        });
+        
+        // Hide the button if app is already installed
         window.addEventListener("appinstalled", () => {
             document.getElementById("installBtn").classList.add("hidden");
             console.log("PWA installed");
         });
+
     }
 
     async generateQRCode(encryptionKey, dataForEncryption) {
@@ -237,7 +257,7 @@ class QRVault {
 
     showInfoMessage() {
         document.getElementById("pwaDetails").innerHTML  = `
-            <strong>QrVault</strong> lets you securely store and share your passwords by encrypting them into a QR code. Your data is never stored on any server -> only within the QR code itself. It can only be decrypted with a unique key after scanning, ensuring your credentials remain private, portable, and accessible only to you.
+            This tool lets you securely store your passwords by encrypting them into a QR code. Your data is never stored on any server - only within the QR code itself. It can only be decrypted with a unique key after scanning, ensuring your credentials remain private, portable, and accessible only to you.
         `;
         document.getElementById("modal").classList.remove("hidden");
     }
@@ -245,23 +265,6 @@ class QRVault {
     closeInfoMessage() {
         document.getElementById("modal").classList.add("hidden");
     }
-
-    async showInstallPrompt() {
-
-        if (this.deferredPrompt) {
-            this.deferredPrompt.prompt(); // Show the install prompt
-            
-            const choice = await this.deferredPrompt.userChoice;
-            if (choice.outcome === "accepted") {
-                console.log("User accepted the PWA install");
-            } else {
-                console.log("User dismissed the PWA install");
-            }
-            deferredPrompt = null; // Reset the prompt
-            document.getElementById("installBtn").classList.add("hidden");
-        }
-    }
-    
 }
 
 // Initialize Vault
