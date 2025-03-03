@@ -5,7 +5,7 @@ It can only be decrypted with a unique key after scanning, ensuring your credent
 
 ## How to use
 
-[Visit the App](https://kkuuba.github.io/QrVault/)
+[QrVault PWA](https://kkuuba.github.io/QrVault/)
 
 ## Install on Android & iOS & Desktop
 
